@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<nav>
+    <div class="nav-wrapper grey darken-5">
+        <a href="/" class="brand-logo">This is a shit survey.com</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="/api">API</a></li>
+            <li><a href="/api/jon">Jon</a></li>
+            <li><a href="/survey">Survey</a></li>
+        </ul>
+    </div>
+</nav>
+
+<body>
+
+<div class="container"></div>
+
+<script type="text/javascript">
+
+// $("input:checkbox").on('click', function() {
+//   // in the handler, 'this' refers to the box clicked on
+//   var $box = $(this);
+//   if ($box.is(":checked")) {
+//     // the name of the box is retrieved using the .attr() method
+//     // as it is assumed and expected to be immutable
+//     var group = "input:checkbox[name='" + $box.attr("name") + "']";
+//     // the checked state of the group/box on the other hand will change
+//     // and the current value is retrieved using .prop() method
+//     $(group).prop("checked", false);
+//     $box.prop("checked", true);
+//   } else {
+//     $box.prop("checked", false);
+//   }
+// });
+
+$('#submit').on('click',()=>{
+  event.preventDefault();
+  var name = $("#name").val().trim();
+  var email = $("#email").val().trim();
+  var imageURL =  $("#imageURL").val().trim();
+  var description =  $("#description").val().trim();
+  var survey = {
+      "name": name,
+      "email": email,
+      "imageURL": imageURL,
+      "desciption": description,
+      "scores": 
+  };
+  var scores = [];
+  
+  var q1 = $("input[name=q1]:checked").val();
+  scores.push(q1);
+  console.log(q1)
+  var q2 = $("input[name=q2]:checked").val();
+  scores.push(q2);
+  var q3 = $("input[name=q3]:checked").val();
+  scores.push(q3);
+  var q4 = $("input[name=q4]:checked").val();
+  scores.push(q4);
+  var q5 = $("input[name=q5]:checked").val();
+  scores.push(q5);
+  var q6 = $("input[name=q6]:checked").val();
+  scores.push(q6);
+  var q8 = $("input[name=q8]:checked").val();
+  scores.push(q8);
+  var q9 = $("input[name=q9]:checked").val();
+  scores.push(q9);
+  var q10 = $("input[name=q10]:checked").val();
+  scores.push(q10);
+  survey.scores = scores;
+  console.log('survey:'+survey.scores);
+  postData(survey);
+})
+console.log('poop1');
+
+function postData(survey){
+  $.post("/api/new", survey, function(data){
+    if(data){
+      console.log(data);
+    }
+    else{
+      console.log('uh oh wut hpnd?');
+    }
+  })
+}
+
+</script>
+
+</body>
+</html>
