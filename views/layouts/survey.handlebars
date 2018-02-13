@@ -17,6 +17,8 @@
     <link type="text/css" rel="stylesheet" href="style.css">
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Shitty Friend Finder</title>
 </head>
 
 <body>
@@ -130,21 +132,26 @@ $('#go').on('click',()=>{
       "compatibility": 0 
   };
   var checked = 0;
-  for(var i=1; i<11; i++){
-    if($("input[name=q"+i+"]:checked").val()){
-      survey.scores.push($("input[name=q"+i+"]:checked").val());
-      checked++;
+  if(name && email && imageURL && description){
+    for(var i=1; i<11; i++){
+      if($("input[name=q"+i+"]:checked").val()){
+        survey.scores.push($("input[name=q"+i+"]:checked").val());
+        checked++;
+      }
+      else{
+        console.log('go fill in all the answers');
+        $('#modal2').modal('open');
+        break;
+      }
+      if(checked === 10){
+        console.log(survey);
+        postData(survey);
+        $('#modal1').modal('open');
+      }
     }
-    else{
-      console.log('go fill in all the answers');
-      $('#modal2').modal('open');
-      break;
-    }
-    if(checked === 10){
-      console.log(survey);
-      postData(survey);
-      $('#modal1').modal('open');
-    }
+  }
+  else{
+    $('#modal2').modal('open');
   }
   // var q1 = $("input[name=q1]:checked").val();
   // survey.scores.push(q1);

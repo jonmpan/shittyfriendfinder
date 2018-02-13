@@ -2,65 +2,73 @@ var friends = [
 {
 	"name":"Jon", 
 	"email":"jon@shittysurvey.com",
-	"imageURL":"https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/68dd54ca-60cf-4ef7-898b-26d7cbe48ec7/10-dithering-opt.jpg",
-	"description":"True poo connessuer looking to meet other refined poo lovers",
-	"scores[]":[1,2,3,4,5,1,2,3,4,5],
+	"imageURL":"https://media.giphy.com/media/cSmwcTzp96ocU/giphy.gif",
+	"description":"True poo connessuer looking to meet other refined poo lovers. I am a belieber in once a true poo friend, always a true poo friend. I like cats as well.",
+	"scores[]":[5,5,5,5,5,5,5,5,5,5],
 	"compatibility": 0
 },
 {
-	"name":"Bob", 
+	"name":"Bob Newby", 
 	"email":"bob@strangerthings.com",
-	"imageURL":"https://typeset-beta.imgix.net/uploads/image/2017/10/23/1d2aeb32-d8a0-4635-8a6b-ac03d509649f-bob-stranger-things.jpg",
-	"description":"The best character from Stranger Things",
-	"scores[]":[1,1,1,1,2,2,2,5,1,5],
+	"imageURL":"https://media.giphy.com/media/3o7aD2DZGcbySnCjOo/giphy.gif",
+	"description":"The best character from Stranger Things. He loves Joyce and her family. He did everything he could to help them but still died in the end. Why couldn't someone else die? Like Will, or perhaps everyone else besides Bob?",
+	"scores[]":[3,3,3,3,3,3,3,3,3,3],
 	"compatibility": 0
 },
 {
 	"name":"Hello Kitty", 
 	"email":"hellokitty@sanrio.com",
-	"imageURL":"http://static.tvtropes.org/pmwiki/pub/images/Hello_Kitty_Pink_2981.jpg",
-	"description":"I hate poop",
-	"scores[]":[4,1,3,2,1,1,1,5,4,3],
+	"imageURL":"https://media.giphy.com/media/lBvrZTQQBqbm/giphy.gif",
+	"description":"I hate poop. I like cute things and Sanrio stuff. I also like flowers being glued to my forehead. I'm here to meet other poo haters.",
+	"scores[]":[1,1,1,1,1,1,1,1,1,1],
 	"compatibility": 0
 },
 {
-	"name":"Joe Schmoe", 
-	"email":"joe@shmoe.com",
-	"imageURL":"http://static.tvtropes.org/pmwiki/pub/images/Hello_Kitty_Pink_2981.jpg",
-	"description":"I hate poop",
-	"scores[]":[5,5,5,5,5,5,5,5,5,5],
+	"name":"Random Asshole", 
+	"email":"asshole@random.com",
+	"imageURL":"http://1.bp.blogspot.com/-Ismfeucn6-Q/VkJ-qeV8OKI/AAAAAAAAGhg/mnRi1C3p-Kg/s1600/gluttony.jpeg",
+	"description":"Omnomaorghbbppplbbblttltllthhphhhhhapdfppgg Nom ommgoga DELICioucuissSSY! Hi plze b my frind.",
+	"scores[]":[5,5,2,3,1,5,4,1,2,2],
 	"compatibility": 0
 },
 {
-	"name":"Jon2", 
-	"email":"jon2@shittysurvey.com",
-	"imageURL":"https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/68dd54ca-60cf-4ef7-898b-26d7cbe48ec7/10-dithering-opt.jpg",
-	"description":"True poo connessuer looking to meet other refined poo lovers",
+	"name":"Not a bot", 
+	"email":"notabot@russianbot.com",
+	"imageURL":"https://media.giphy.com/media/mIZ9rPeMKefm0/giphy.gif",
+	"description":"I AM NOT A BOT!!101010! I POST MEMES AND TRUMP MEMES OH AND MEMES!!! BZZZZT! я не бот, а putin - лучший",
 	"scores[]":[1,2,3,4,5,1,2,3,4,5],
 	"compatibility": 0
 },
 {
-	"name":"Bob2", 
-	"email":"bob@strangerthings.com",
-	"imageURL":"https://typeset-beta.imgix.net/uploads/image/2017/10/23/1d2aeb32-d8a0-4635-8a6b-ac03d509649f-bob-stranger-things.jpg",
-	"description":"The best character from Stranger Things",
-	"scores[]":[1,1,1,1,2,2,2,5,1,5],
+	"name":"Omnomnomnom", 
+	"email":"deliciouscookies@fakeemail.com",
+	"imageURL":"https://media2.giphy.com/media/z5XqADIr92Dw4/giphy.gif",
+	"description":"I LOVE COOKIES! The only thing BETTER than a cookie is a nice, big, juicy, dump.",
+	"scores[]":[5,3,4,5,5,5,5,4,5,5],
 	"compatibility": 0
 },
 {
-	"name":"Hello Kitty2", 
-	"email":"hellokitty@sanrio.com",
-	"imageURL":"http://static.tvtropes.org/pmwiki/pub/images/Hello_Kitty_Pink_2981.jpg",
-	"description":"I hate poop",
-	"scores[]":[4,1,3,2,1,1,1,5,4,3],
+	"name":"ARRGGHHHGHHGHGHHHH!!!!!!!!!!!!", 
+	"email":"flip@table.com",
+	"imageURL":"https://media.giphy.com/media/dwpbGUm18BAfm/giphy.gif",
+	"description":"I HATE EVERYTHING! ESPECIALLY TABLES@!!!#!@#!#!@ (╯°□°）╯︵ ┻━┻ (╯°□°）╯︵ ┻━┻ (╯°□°）╯︵ ┻━┻ Although I guess poop is ok... sometimes ^_^",
+	"scores[]":[4,1,3,2,2,3,3,5,4,3],
 	"compatibility": 0
 },
 {
-	"name":"Joe Schmoe2", 
-	"email":"joe@shmoe.com",
-	"imageURL":"http://static.tvtropes.org/pmwiki/pub/images/Hello_Kitty_Pink_2981.jpg",
-	"description":"I hate poop",
-	"scores[]":[5,5,5,5,5,5,5,5,5,5],
+	"name":"NOT SPACE POO",
+	"email":"poo@space.com",
+	"imageURL":"https://media.giphy.com/media/26gJzZ42vXY6eimLS/giphy.gif",
+	"description":"I AM NOT AN ALIEN DISGUISED AS SOMETHING EVERY CARBON BASED LIFE FORM EXPELS FROM THEIR RECTAL CAVITIES. I AM NOT HERE TO TAKE OVER THIS CELESTIAL BODY YOU LIFEFORMS HAVE CALLED 'EARTH'. BELIEVE ME! SUBMIT!",
+	"scores[]":[4,4,4,4,4,4,4,4,4,4],
+	"compatibility": 0
+},
+{
+	"name":"Cirno",
+	"email":"cirno@touhou.com",
+	"imageURL":"https://media.giphy.com/media/eJ0fhc0xtfVkc/giphy.gif",
+	"description":"HAI GUYS! I'M da STRONGEST and SMARTEST Touhou! What am I doing on this site? Idk... uhh... because...!",
+	"scores[]":[3,2,1,3,2,1,3,2,1,1],
 	"compatibility": 0
 }];
 

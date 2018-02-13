@@ -5,7 +5,7 @@ var questions = [
 	{q:"q1",ques:"Everyone Poops"},
 	{q:"q2",ques:"All life stems from poop"},
 	{q:"q3",ques:"I like the smell of my own poop"},
-	{q:"q4",ques:"Other people's poops smell bad"},
+	{q:"q4",ques:"Other people's poops don't smell that bad"},
 	{q:"q5",ques:"I prefer diarrhea over constipation"},
 	{q:"q6",ques:"A good poop inspires me"},
 	{q:"q7",ques:"I appreciate a freshly warmed toilet seat"},
