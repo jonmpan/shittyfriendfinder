@@ -17,89 +17,221 @@
     <link type="text/css" rel="stylesheet" href="style.css">
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style type="text/css">
+
+  .no-bottom-margin{
+    margin-bottom: 0px;
+  }
+
+  .no-margin{
+    margin:0px;
+  }
+
+  .no-padding{
+    padding:0;
+  }
+  .some-padding{
+    padding:25px;
+  }
+  .smol-bottom-margin{
+    margin-bottom: 20px;
+  }
+</style>
 </head>
-<nav>
-    <div class="nav-wrapper grey darken-5">
-        <a href="/" class="brand-logo">This is a shit survey.com</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="/api">API</a></li>
-            <li><a href="/api/jon">Jon</a></li>
-            <li><a href="/survey">Survey</a></li>
-        </ul>
-    </div>
-</nav>
 
 <body>
-
-<div class="container"></div>
+<div class="content">
+        <div class="bg"></div>
+        <!-- <div class="bg2"></div> -->
+        <div class="navbar-fixed">
+          <nav>
+              <div class="nav-wrapper custom-white-navbar">
+                  <a href="/" class="brand-logo"><img class="responsive-img" src="pooplogo.png"></a>
+                  <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                  <ul id="nav-mobile" class="right hide-on-med-and-down">
+                      <li><a href="/" class="white-text">Home</a></li>
+                      <li><a href="/api" class="white-text">API</a></li>
+                      <li><a href="/survey" class="white-text">Survey</a></li>
+                  </ul>
+                  <ul class="side-nav" id="mobile-demo">
+                      <li><a href="/" class="white-text">Home</a></li>
+                      <li><a href="/api" class="white-text">API</a></li>
+                      <li><a href="/survey" class="white-text">Survey</a></li>
+                  </ul>
+              </div>
+          </nav>
+        </div>
+        <h4 class=" no-margin some-padding white-text">Amazingly Shitty Friends Await You!</h4>
+        <div  id="insert-friends-here">
+<!--             <div class="row">
+                <div class="progress no-margin">
+                    <div class="indeterminate"></div>
+                </div>
+                <div class="col s6 m4">
+                    <div class="card large">
+                        <div class="card-image">
+                            <img src="http://peachbeachsplash.com/images/contestants-team-gessen-4-shiki.jpg">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title">Card Title</span>
+                            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s6 m4">
+                    <div class="card large">
+                        <div class="card-image">
+                            <img src="background.jpg">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title">Card Title</span>
+                            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s6 m4">
+                    <div class="card large">
+                        <div class="card-image">
+                            <img src="http://peachbeachsplash.com/images/contestants-team-gessen-3-yozakura.jpg">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title">Card Title</span>
+                            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                 <div class="progress">
+                    <div class="indeterminate"></div>
+                </div>
+                <div class="col s6 m4">
+                    <div class="card large">
+                        <div class="card-image">
+                            <img src="http://peachbeachsplash.com/images/contestants-team-gessen-5-minori.jpg">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title">Card Title</span>
+                            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s6 m4">
+                    <div class="card large">
+                        <div class="card-image">
+                            <img src="background.jpg">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title">Card Title</span>
+                            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s6 m4">
+                    <div class="card large">
+                        <div class="card-image">
+                            <img src="background.jpg">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title">Card Title</span>
+                            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+        
+    </div>
+<div class="navbar">
+  <nav>
+      <div class="nav-wrapper black white-text footer-style">
+          copyright nobody
+      </div>
+  </nav>
+</div>
+</body>
 
 <script type="text/javascript">
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+}
 
-// $("input:checkbox").on('click', function() {
-//   // in the handler, 'this' refers to the box clicked on
-//   var $box = $(this);
-//   if ($box.is(":checked")) {
-//     // the name of the box is retrieved using the .attr() method
-//     // as it is assumed and expected to be immutable
-//     var group = "input:checkbox[name='" + $box.attr("name") + "']";
-//     // the checked state of the group/box on the other hand will change
-//     // and the current value is retrieved using .prop() method
-//     $(group).prop("checked", false);
-//     $box.prop("checked", true);
-//   } else {
-//     $box.prop("checked", false);
-//   }
-// });
+$(document).ready(function(){
+    // Init Carousel
+    $('.carousel').carousel();
 
-$('#submit').on('click',()=>{
-  event.preventDefault();
-  var name = $("#name").val().trim();
-  var email = $("#email").val().trim();
-  var imageURL =  $("#imageURL").val().trim();
-  var description =  $("#description").val().trim();
-  var survey = {
-      "name": name,
-      "email": email,
-      "imageURL": imageURL,
-      "desciption": description,
-      "scores": 
-  };
-  var scores = [];
-  
-  var q1 = $("input[name=q1]:checked").val();
-  scores.push(q1);
-  console.log(q1)
-  var q2 = $("input[name=q2]:checked").val();
-  scores.push(q2);
-  var q3 = $("input[name=q3]:checked").val();
-  scores.push(q3);
-  var q4 = $("input[name=q4]:checked").val();
-  scores.push(q4);
-  var q5 = $("input[name=q5]:checked").val();
-  scores.push(q5);
-  var q6 = $("input[name=q6]:checked").val();
-  scores.push(q6);
-  var q8 = $("input[name=q8]:checked").val();
-  scores.push(q8);
-  var q9 = $("input[name=q9]:checked").val();
-  scores.push(q9);
-  var q10 = $("input[name=q10]:checked").val();
-  scores.push(q10);
-  survey.scores = scores;
-  console.log('survey:'+survey.scores);
-  postData(survey);
-})
-console.log('poop1');
+    // Init Carousel Slider
+    $('.carousel.carousel-slider').carousel({fullWidth:true});
 
-function postData(survey){
-  $.post("/api/new", survey, function(data){
-    if(data){
-      console.log(data);
+    // Fire off toast
+    //Materialize.toast('Hello World', 3000);
+
+    // Init Slider
+    $('.slider').slider();
+
+    // Init Modal
+    $('.modal').modal();
+
+    // Init Sidenav
+    $('.button-collapse').sideNav();
+
+    $(function () {
+      $(document).scroll(function () {
+        var $nav = $(".custom-white-navbar");
+        $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+      });
+    });
+});
+
+$.get('/api',function(data){
+  console.log(data);
+}).then((data)=>{
+  appendFriends(shuffle(data))
+});
+var offset = 0;
+
+function appendFriends(data){
+  console.log(data);
+  for(var i = offset; i<30; i+=3){
+    offset += 30;
+    console.log('group'+i);
+    if(data[i]){
+      var abomination = '<div class="row" id="group'+i+'"></div>';
+      $('#insert-friends-here').append(abomination);
+      var friendAbomination0 = '<div class="col s6 m4"><div class="card large"><div class="card-image"><img src="'+data[i].imageURL+'"></div><div class="card-content"><span class="card-title">'+data[i].name+'</span><p>'+data[i].description+'</p></div></div></div>';
+      $('#group'+i).append(friendAbomination0);
+      console.log(i);
     }
-    else{
-      console.log('uh oh wut hpnd?');
+    if(data[i+1]){
+      var friendAbomination1 = '<div class="col s6 m4"><div class="card large"><div class="card-image"><img src="'+data[i+1].imageURL+'"></div><div class="card-content"><span class="card-title">'+data[i+1].name+'</span><p>'+data[i+1].description+'</p></div></div></div>';
+      $('#group'+i).append(friendAbomination1);
+      console.log(i+1);
     }
-  })
+    if(data[i+2]){
+      var friendAbomination2 = '<div class="col s6 m4"><div class="card large"><div class="card-image"><img src="'+data[i+2].imageURL+'"></div><div class="card-content"><span class="card-title">'+data[i+2].name+'</span><p>'+data[i+2].description+'</p></div></div></div>'
+      $('#group'+i).append(friendAbomination2);
+      console.log(i+2);
+    }
+  }
+}
+
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
 }
 
 </script>

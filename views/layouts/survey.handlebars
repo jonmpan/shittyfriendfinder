@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+
+<style type="text/css">
+  .no-bottom-margin{
+    margin-bottom: 0px;
+  }
+</style>
+
+<div class="bg"></div>
+
+<div class="navbar-fixed">
+    <nav>
+        <div class="nav-wrapper custom-white-navbar">
+            <a href="/" class="brand-logo"><img class="responsive-img" src="pooplogo.png"></a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="/" class="white-text">Home</a></li>
+                <li><a href="/api" class="white-text">API</a></li>
+                <li><a href="/survey" class="white-text">Survey</a></li>
+            </ul>
+            <ul class="side-nav" id="mobile-demo">
+                <li><a href="/" class="white-text">Home</a></li>
+                <li><a href="/api" class="white-text">API</a></li>
+                <li><a href="/survey" class="white-text">Survey</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<div class="push-down"></div>
+{{!-- <div class="push-down"></div> --}}
+
+{{{body}}}
+
+
+{{!-- <footer class="page-footer custom-white-footer"> --}}
+<div class="navbar">
+  <nav>
+      <div class="nav-wrapper black white-text footer-style">
+          copyright nobody
+      </div>
+  </nav>
+</div>
+{{!-- </footer> --}}
+
+</body>
+
+<script type="text/javascript">
+
+// $("input:checkbox").on('click', function() {
+//   // in the handler, 'this' refers to the box clicked on
+//   var $box = $(this);
+//   if ($box.is(":checked")) {
+//     // the name of the box is retrieved using the .attr() method
+//     // as it is assumed and expected to be immutable
+//     var group = "input:checkbox[name='" + $box.attr("name") + "']";
+//     // the checked state of the group/box on the other hand will change
+//     // and the current value is retrieved using .prop() method
+//     $(group).prop("checked", false);
+//     $box.prop("checked", true);
+//   } else {
+//     $box.prop("checked", false);
+//   }
+// });
+
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+}
+
+$(document).ready(function(){
+    // Init Carousel
+    $('.carousel').carousel();
+
+    // Init Carousel Slider
+    $('.carousel.carousel-slider').carousel({fullWidth:true});
+
+    // Fire off toast
+    //Materialize.toast('Hello World', 3000);
+
+    // Init Slider
+    $('.slider').slider();
+
+    // Init Modal
+    $('.modal').modal();
+
+    // Init Sidenav
+    $('.button-collapse').sideNav();
+
+    $(function () {
+      $(document).scroll(function () {
+        var $nav = $(".custom-white-navbar");
+        $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+      });
+    });
+});
+
+$('#go').on('click',()=>{
+  event.preventDefault();
+  var name = $("#name").val().trim();
+  var email = $("#email").val().trim();
+  var imageURL =  $("#imageURL").val().trim();
+  var description =  $("#description").val().trim();
+  var survey = {
+      "name": name,
+      "email": email,
+      "imageURL": imageURL,
+      "description": description,
+      "scores": [],
+      "compatibility": 0 
+  };
+  var checked = 0;
+  for(var i=1; i<11; i++){
+    if($("input[name=q"+i+"]:checked").val()){
+      survey.scores.push($("input[name=q"+i+"]:checked").val());
+      checked++;
+    }
+    else{
+      console.log('go fill in all the answers');
+      $('#modal2').modal('open');
+      break;
+    }
+    if(checked === 10){
+      console.log(survey);
+      postData(survey);
+      $('#modal1').modal('open');
+    }
+  }
+  // var q1 = $("input[name=q1]:checked").val();
+  // survey.scores.push(q1);
+  // var q2 = $("input[name=q2]:checked").val();
+  // survey.scores.push(q2);
+  // var q3 = $("input[name=q3]:checked").val();
+  // survey.scores.push(q3);
+  // var q4 = $("input[name=q4]:checked").val();
+  // survey.scores.push(q4);
+  // var q5 = $("input[name=q5]:checked").val();
+  // survey.scores.push(q5);
+  // var q6 = $("input[name=q6]:checked").val();
+  // survey.scores.push(q6);
+  // var q7 = $("input[name=q7]:checked").val();
+  // survey.scores.push(q7);  
+  // var q8 = $("input[name=q8]:checked").val();
+  // survey.scores.push(q8);
+  // var q9 = $("input[name=q9]:checked").val();
+  // survey.scores.push(q9);
+  // var q10 = $("input[name=q10]:checked").val();
+  // survey.scores.push(q10);
+  // postData(survey);
+})
+
+function postData(survey){
+  $.post("/api/new", survey, function(data){
+    if(data){
+      if(data.unique ==='name-email'){
+        $('#welcome-text').text('Welcome back '+survey.name+'!');
+        putAbominationIn(data.friends);
+      }
+      else if(data.unique === 'name'){
+        $('#welcome-text').text('Welcome back '+survey.name+'! We updated your email!');
+        putAbominationIn(data.friends); 
+      }
+      else if(data.unique === 'email'){
+        $('#welcome-text').text('Welcome back '+survey.name+'! We updated your name!');
+        putAbominationIn(data.friends);  
+      }
+      else if(data.unique === 'yes'){
+        $('#welcome-text').text('Welcome '+survey.name+'!');
+        putAbominationIn(data.friends);
+      }
+    }
+    else{
+      console.log('uh oh wut hpnd?');
+    }
+  })
+}
+
+function putAbominationIn(friends){
+  // console.log('friends: '+friends);
+  for(var num=0; num<friends.length; num++){
+    var current = num+1;
+    var compatibility = Math.ceil(friends[num].compatibility*100)+'%';
+    $('.f'+current+'-name').text(friends[num].name);
+    $('#f'+current+'-description').text(friends[num].description);
+    $('#f'+current+'-email').text(friends[num].email);
+    $('#f'+current+'-image').attr('src', friends[num].imageURL);
+    $('#f'+current+'-percent').text(compatibility);
+    var answers = getAnswers(friends[num]);
+    for(var i=1; i<answers.length+1; i++){
+      $('#f'+current+'-q'+i).text(answers[i-1]);
+    }
+  }
+}
+
+function getAnswers(friend){
+  var answers = [];
+  friend['scores[]'].forEach((data)=>{
+    if(data == 1){
+      answers.push('Strongly Disagree');
+    }
+    else if(data == 2){
+      answers.push('Disagree');
+    }
+    else if(data == 3){
+      answers.push('Neutral');
+    }
+    else if(data == 4){
+      answers.push('Agree');
+    }
+    else if(data == 5){
+      answers.push('Strongly Agree');
+    }
+  })
+  return answers;
+}
+
+// function putAbominationIn(friends){
+//   var icons = ['directions_bike','directions_run','directions_walk']
+//   for(var i=0; i<friends.length; i++){
+//   var compatibility = friends[i].compatibility*100+'%';
+//   var abomination = '<li><div class="collapsible-header"><i class="material-icons">'+icons[i]+'</i>'+friends[i].name+' - <span class="red-text">'+compatibility+'</span> Match!!!</div><div class="collapsible-body"><div class="row"><div class="col s6"><img src="https://upload.wikimedia.org/wikipedia/commons/7/79/G-AWEF_%2815258706710%29.jpg" alt="" class="responsive-img"></div><div class="col s6"><h5>Jon is a great friend for you!</h5><div><strong>Email:</strong> jon@jon.com</div><br><div><strong>Description</strong> Jon loves poop and enjoys putting it in all his website! Heck, youre looking at some of the shit he comes up with!</div></div></div><div class="row no-bottom-margin"><h5>See how Jon answered his/her/their questions!</h5><ul class="collapsible no-bottom-margin" data-collapsible="accordion"><li><div class="collapsible-header">Question 1 - I like the smell of my own poop</div><div class="collapsible-body">Strongly Agree</div></li><li><div class="collapsible-header">Question 2 - Other people\'s poop smell bad</div><div class="collapsible-body">Strongly Agree</div></li><li><div class="collapsible-header">Question 3 - I\'d rather eat my own poop over someone else\'s poop</div><div class="collapsible-body">Strongly Agree</div></li><li><div class="collapsible-header">Question 4 - I\'d rather poop from my mouth than pee from my eyes</div><div class="collapsible-body">Strongly Agree</div></li><li><div class="collapsible-header">Question 5 - I prefer diarrhea over constipation</div><div class="collapsible-body">Strongly Agree</div></li><li><div class="collapsible-header">Question 6 - A good poop inspires me</div><div class="collapsible-body">Strongly Agree</div></li><li><div class="collapsible-header">Question 7 - I appreciate a freshly warmed toilet seat</div><div class="collapsible-body">Strongly Agree</div></li><li><div class="collapsible-header">Question 8 - I prefer soft and moist over hard and crusty</div><div class="collapsible-body">Strongly Agree</div></li><li><div class="collapsible-header">Question 9 - Place Holder 9</div><div class="collapsible-body">Strongly Agree</div></li><li><div class="collapsible-header">Question 10 - Place Holder 10</div><div class="collapsible-body">Strongly Agree</div></li></ul></div></div></li>'
+//   $('#put-friends-here').append(abomination);
+//   }
+// }
+
+</script>
+
+</body>
+</html>

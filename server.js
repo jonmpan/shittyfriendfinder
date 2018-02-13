@@ -1,4 +1,5 @@
 var express = require('express');
+var exphbs = require("express-handlebars");
 var bodyParser = require('body-parser');
 var path = require('path');
 
@@ -6,6 +7,9 @@ var app = express();
 var port = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+app.engine("handlebars", exphbs({ defaultLayout: "survey" }));
+app.set("view engine", "handlebars");
 
 var getAPI = require('./app/routing/apiRoutes.js')(app);
 var htmlRoutes = require('./app/routing/htmlRoutes.js')(app);

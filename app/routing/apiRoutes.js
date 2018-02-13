@@ -24,13 +24,43 @@ function postAPI (req, res){
 	var temp = 0;
 	for(var i=0; i<friends.length; i++){
 		if(friends[i].name === newPerson.name && friends[i].email === newPerson.email){
-			return res.json("someone with the same name and email exists");
+			// return res.json("someone with the same name and email exists");
+			calculateFriends(newPerson);
+			for(var i = 0; i < friends.length; i++) {
+    			if(friends[i].name == newPerson.name) {
+        			friends.splice(i, 1);
+        			break;
+    			}
+			}
+			friends.push(newPerson);
+			return res.json({unique:'name-email',friends:friends.slice(0,3)});
+			console.log(friends);
 		}
 		else if(friends[i].name === newPerson.name){
-			return res.json("someone with the same name exists");
+			// return res.json("someone with the same name exists");
+			calculateFriends(newPerson);
+			for(var i = 0; i < friends.length; i++) {
+    			if(friends[i].name == newPerson.name) {
+        			friends.splice(i, 1);
+        			break;
+    			}
+			}
+			friends.push(newPerson);
+			return res.json({unique:'name',friends:friends.slice(0,3)});
+			console.log(friends);
 		}
 		else if(friends[i].email === newPerson.email){
-			return res.json("someone with the same email exists");
+			// return res.json("someone with the same email exists");
+			for(var i = 0; i < friends.length; i++) {
+    			if(friends[i].email == newPerson.email) {
+        			friends.splice(i, 1);
+        			break;
+    			}
+			}
+			friends.push(newPerson);
+			calculateFriends(newPerson);
+			return res.json({unique:'email',friends:friends.slice(0,3)});
+			console.log(friends);
 		}
 		else{
 			temp++;
@@ -39,24 +69,23 @@ function postAPI (req, res){
 	}
 	if(temp === friends.length){
 		calculateFriends(newPerson);
-		res.json(friends.slice(0,3));
+		friends.push(newPerson);
+		res.json({unique:'yes',friends:friends.slice(0,3)});
 		console.log(friends);
 	}
 }
 
 function calculateFriends(newPerson){
-	var thing1 = "You and your friend have the same shitty outlook on life!"
-	var thing2 = "You and this guy could not be anymore poo-lar op-poo-sites!"
 	//Run through array and compare scores to calculate compatibility
 	friends.forEach((data)=>{
-		data.compatibility = 0;
-		for(var i=0; i<data["scores[]"].length; i++){
-			// console.log('q'+i+' '+Math.abs(parseInt(data["scores[]"][i]) - parseInt(newPerson["scores[]"][i])));
-			data.compatibility += Math.abs(parseInt(data["scores[]"][i]) - parseInt(newPerson["scores[]"][i]));
+		if(newPerson.name != data.name && newPerson.email != data.email){
+			data.compatibility = 0;
+			for(var i=0; i<data["scores[]"].length; i++){
+				data.compatibility += Math.abs(parseInt(data["scores[]"][i]) - parseInt(newPerson["scores[]"][i]));
+			}
+			data.compatibility = (40-data.compatibility)/40;
 		}
-		data.compatibility = (40-data.compatibility)/40;
 	})
-	friends.push(newPerson);
 	friends.sort(function(a,b){
 		return b.compatibility - a.compatibility;
 	});
